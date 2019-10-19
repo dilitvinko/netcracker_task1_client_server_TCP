@@ -1,9 +1,9 @@
-import java.io.*;
+import java.io.IOException;
 import java.net.InetAddress;
 
 public class ClientTCP {
     public static void main(String[] args) {
-        try ( MyClientSocket myClientSocket = new MyClientSocket(InetAddress.getLocalHost(), 8040)
+        try (MyClientSocket myClientSocket = new MyClientSocket(InetAddress.getLocalHost(), 8040)
         ) {
             System.out.println("Please, write you text: ");
 
@@ -15,7 +15,7 @@ public class ClientTCP {
             String textFromServer = myClientSocket.getIn().readLine();
             System.out.println("Text from server: " + textFromServer);
 
-        }  catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
